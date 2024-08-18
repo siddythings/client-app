@@ -1,113 +1,131 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React from 'react';
+import { Mail, Youtube, Facebook, Instagram, ChevronRight } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import Link from 'next/link';
+
+const UserProfilePage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="max-w-2xl mx-auto p-4 bg-white">
+      <div className="text-center mb-8">
+        <img src="https://img.freepik.com/free-photo/ai-generated-cute-girl-pic_23-2150649980.jpg" alt="Profile" className="rounded-full mx-auto mb-2" width={200} />
+        <h1 className="text-2xl font-bold">Grace Perry Productions</h1>
+        <p className="text-sm text-gray-600">Content Coach, Fempreneur & Creator</p>
+        <div className="flex justify-center space-x-2 mt-2">
+          <Button variant="ghost" size="icon"><Youtube size={20} /></Button>
+          <Button variant="ghost" size="icon"><Mail size={20} /></Button>
+          <Button variant="ghost" size="icon"><Facebook size={20} /></Button>
+          <Button variant="ghost" size="icon"><Instagram size={20} /></Button>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="flex">
+        <div className="w-1/2 pr-4">
+          <Card className="mb-4">
+            <CardHeader className="flex items-center">
+              <img src="https://img.freepik.com/free-photo/ai-generated-cute-girl-pic_23-2150649980.jpg" alt="Consultation" className="rounded-full mr-2" width={20} />
+              <div>
+                <h2 className="font-semibold">1:1 Creative Consultation</h2>
+                <p className="text-xs text-gray-600">Book a private social media management or content creation consultation with me.</p>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <span className="bg-yellow-300 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">⭐ 5.0</span>
+                <Link href="/booking">
+                  <Button className="bg-rose-400 text-white">Schedule Call <ChevronRight size={16} /></Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="mb-4">
+            <CardHeader>
+              <h2 className="font-semibold">Content Coach Email Newsletter</h2>
+              <p className="text-xs text-gray-600">Join my email list and never miss an update from your favorite Content Coach!</p>
+            </CardHeader>
+            <CardContent>
+              <Input placeholder="Enter your name" className="mb-2" />
+              <Input placeholder="Enter your email" className="mb-2" />
+              <Input placeholder="Enter your phone number" className="mb-2" />
+              <Button className="w-full bg-rose-400 text-white">Join Newsletter <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardHeader className="flex items-center">
+              <img src="/api/placeholder/40/40" alt="Photoshoot" className="rounded-full mr-2" />
+              <div>
+                <h2 className="font-semibold">Level Up Photoshoot</h2>
+                <p className="text-xs text-gray-600">Book a private branding photoshoot with me.</p>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">$999</span>
+                <span className="bg-yellow-300 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">⭐ 5.0</span>
+              </div>
+              <Button className="w-full mt-2 bg-rose-400 text-white">Level Up Photo Shoot <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+
+        <div className="w-1/2 pl-4">
+          <Card className="mb-4">
+            <CardHeader>
+              <h2 className="font-semibold">Dinner of Dreams</h2>
+              <p className="text-xs text-gray-600">An unforgettable evening for female entrepreneurs to connect deeper on September 26.</p>
+            </CardHeader>
+            <CardContent>
+              <Button className="w-full bg-rose-400 text-white">Secure My Seat <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardHeader>
+              <h2 className="font-semibold">Learn More</h2>
+              <p className="text-xs text-gray-600">Visit my website to learn more about all of my creative services.</p>
+            </CardHeader>
+            <CardContent>
+              <Button className="w-full bg-rose-400 text-white">Visit Website <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardHeader>
+              <h2 className="font-semibold">FREE Elevate & Create Online Workshop</h2>
+              <p className="text-xs text-gray-600">Build your business and brand online!</p>
+            </CardHeader>
+            <CardContent>
+              <Input placeholder="Enter your name" className="mb-2" />
+              <Input placeholder="Enter your email" className="mb-2" />
+              <Button className="w-full bg-rose-400 text-white">WATCH WORKSHOP <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+
+          <Card className="mb-4">
+            <CardHeader className="flex items-center">
+              <img src="/api/placeholder/40/40" alt="Video Session" className="rounded-full mr-2" />
+              <div>
+                <h2 className="font-semibold">Level Up Video Session</h2>
+                <p className="text-xs text-gray-600">Book a private content creation session with me.</p>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between">
+                <span className="font-bold">$1,250</span>
+                <span className="bg-yellow-300 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">⭐ 5.0</span>
+              </div>
+              <Button className="w-full mt-2 bg-rose-400 text-white">Book Video Session <ChevronRight size={16} /></Button>
+            </CardContent>
+          </Card>
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default UserProfilePage;
