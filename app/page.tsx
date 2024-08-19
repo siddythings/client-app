@@ -22,8 +22,8 @@ const UserProfilePage = () => {
         </div>
       </div>
 
-      <div className="flex">
-        <div className="w-1/2 pr-4">
+      <div className="flex flex-col md:flex-row">
+        <div className="pr-4">
           <Card className="mb-4">
             <CardHeader className="flex items-center">
               <img src="https://img.freepik.com/free-photo/ai-generated-cute-girl-pic_23-2150649980.jpg" alt="Consultation" className="rounded-full mr-2" width={20} />
@@ -71,9 +71,9 @@ const UserProfilePage = () => {
             </CardContent>
           </Card>
         </div>
-        <div className="w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div>
+        {/* <div className="w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent"></div> */}
 
-        <div className="w-1/2 pl-4">
+        <div className="pl-4">
           <Card className="mb-4">
             <CardHeader>
               <h2 className="font-semibold">Dinner of Dreams</h2>
