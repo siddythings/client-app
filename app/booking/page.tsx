@@ -9,8 +9,8 @@ import { Textarea } from '@/components/ui/textarea';
 import Link from 'next/link';
 
 const ConsultationBookingPage = () => {
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
+    const [selectedDate, setSelectedDate] = useState<number | null>(null);
+    const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null);
 
     const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
     const augustDays = Array.from({ length: 31 }, (_, i) => i + 1);
